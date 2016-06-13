@@ -8,9 +8,9 @@ namespace SearchEverythingCoreCLI
         private static void Main(string[] args)
         {
             //process args
-            if (args.Length < 2)
+            if (args.Length < 1)
             {
-                Console.Write($"SearchEverything\n©2016 Devocalypse\n\nUsage:\n{args[0]} <keyword>)");
+                Console.Write($"SearchEverything\n©2016 Devocalypse\n\nUsage:\nSearchEverythingCLI <keyword>");
                 return;
             }
 
@@ -33,16 +33,16 @@ namespace SearchEverythingCoreCLI
             string searchString;
 
             //process arguments
-            switch (args[1])
+            switch (args[0])
             {
                 case "--help":
-                    Console.Write($"SearchEverything\n©2016 Devocalypse\n\nUsage:\n{args[0]} <keyword>");
+                    Console.Write($"SearchEverything\n©2016 Devocalypse\n\nUsage:\nnSearchEverythingCLI <keyword>");
                     return;
 
                 default:
-                    searchString = !args[1].StartsWith("Everything://", StringComparison.CurrentCultureIgnoreCase)
-                        ? args[1]
-                        : args[1].Substring(13).TrimEnd('/');
+                    searchString = !args[0].StartsWith("Everything://", StringComparison.CurrentCultureIgnoreCase)
+                        ? args[0]
+                        : args[0].Substring(13).TrimEnd('/');
                     break;
             }
 
