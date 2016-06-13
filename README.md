@@ -5,7 +5,7 @@ Everything search companion for [Directory Opus](http://www.gpsoft.com.au/) - CL
 SearchEverything brings filesystem-wide search results to Directory Opus as a collection which can be further manipulated with the full power of the opus. 
 
 ##Setup
-1. Download SearchEverything binaries or compile the project yourself and extract to a folder (ex. Program Files\Everything)
+1. Download SearchEverything [binaries](https://github.com/devocalypse/SearchEverythingCoreCLI/releases) or compile the project yourself and extract to a folder (ex. Program Files\Everything)
 2. Download "Everything" from [here](http://www.voidtools.com/). Install and run it.
 3. Download the Everything SDK [here](http://www.voidtools.com/Everything-SDK.zip).
 4. Extract Everything32.dll and Everything64.dll inside the DLL folder to your SearchEverything folder.
