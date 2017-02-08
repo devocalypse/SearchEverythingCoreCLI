@@ -10,7 +10,7 @@ namespace SearchEverythingCoreCLI
             //process args
             if (args.Length < 1)
             {
-                Console.Write($"SearchEverything\n©2016 Devocalypse\n\nUsage:\nSearchEverythingCLI <keyword>");
+                Console.Write($"SearchEverything\n©2017 Devocalypse\n\nUsage:\nSearchEverythingCLI <keyword>\nSearchEverythingCLI /<regex>/");
                 return;
             }
 
@@ -47,6 +47,11 @@ namespace SearchEverythingCoreCLI
             }
 
             //get results
+            if (searchString.StartsWith("/") && searchString.EndsWith("/"))
+            {
+                searchString = searchString.Trim(Convert.ToChar("/"));
+                Everything.Everything_SetRegex(true);
+            }
             var results = Everything.Search(searchString);
 
             Console.WriteLine("Found {0} results.", results.Count);
