@@ -26,7 +26,7 @@ namespace SearchEverythingCoreCLI
             var dopuspath = Dopus.GetDopusPathFromRegistry();
             if (string.IsNullOrEmpty(dopuspath))
             {
-                Console.WriteLine("Dopus not found in registry. Abrorting");
+                Console.WriteLine("Dopus not found in registry. Aborting");
                 return;
             }
 
