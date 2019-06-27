@@ -1,10 +1,10 @@
 ## SearchEverythingCoreCLI
 Everything search companion for [Directory Opus](http://www.gpsoft.com.au/) - CLI Core Version
 
-##About
+## About
 SearchEverything brings filesystem-wide search results to Directory Opus as a collection which can be further manipulated with the full power of the opus. 
 
-##Setup
+## Setup
 1. Download SearchEverything [binaries](https://github.com/devocalypse/SearchEverythingCoreCLI/releases) or compile the project yourself and extract to a folder (ex. Program Files\Everything)
 2. Download "Everything" from [here](http://www.voidtools.com/). Install and run it.
 3. Download the Everything SDK [here](http://www.voidtools.com/Everything-SDK.zip).
@@ -21,7 +21,7 @@ SearchEverything brings filesystem-wide search results to Directory Opus as a co
       <icon1>#default:find</icon1>
       <function type="normal">
          <instruction>@admin</instruction>
-         <instruction>C:\Program Files\Everything\SearchEverything.exe &quot;{dlgstring}&quot;</instruction>
+         <instruction>C:\Program Files\Everything\SearchEverythingCoreCLI.exe &quot;{dlgstring}&quot;</instruction>
       </function>
    </button>
    <button display="both" icon_size="large" label_pos="right">
@@ -30,7 +30,7 @@ SearchEverything brings filesystem-wide search results to Directory Opus as a co
       <icon1>#default:find</icon1>
       <function type="normal">
          <instruction>@admin</instruction>
-         <instruction>C:\Program Files\Everything\SearchEverything.exe &quot;{clip}&quot;</instruction>
+         <instruction>C:\Program Files\Everything\SearchEverythingCoreCLI.exe &quot;{clip}&quot;</instruction>
       </function>
    </button>
    <button backcol="none" display="both" icon_size="large" label_pos="right" textcol="none">
@@ -44,7 +44,8 @@ SearchEverything brings filesystem-wide search results to Directory Opus as a co
    </button>
 </button>
 ```
-##Command Line Usage
+## Command Line Usage
 ```
 SearchEverythingCoreCLI [searchstring]
+SearchEverythingCoreCLI [/regexstring/]
 ```
