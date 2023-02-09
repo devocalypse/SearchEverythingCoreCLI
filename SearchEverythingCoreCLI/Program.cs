@@ -10,23 +10,15 @@ namespace SearchEverythingCoreCLI
             //process args
             if (args.Length < 1)
             {
-                Console.Write($"SearchEverything\n©2017 Devocalypse\n\nUsage:\nSearchEverythingCLI <keyword>\nSearchEverythingCLI /<regex>/");
+                Console.Write($"SearchEverything\n©2020 Devocalypse\n\nUsage:\nSearchEverythingCoreCLI <keyword>\nSearchEverythingCoreCLI /<regex>/");
                 return;
             }
 
             //check if everything is running
-            if (Process.GetProcessesByName("Everything").Length < 1)
+            if (Process.GetProcessesByName("Everything").Length < 1 && Process.GetProcessesByName("Everything64").Length < 1)
             {
                 Console.WriteLine(
                     "Everything.exe is not started or has a different executable name.\nStart it yourself and retry.");
-                return;
-            }
-
-            //check if dopus is installed
-            var dopuspath = Dopus.GetDopusPathFromRegistry();
-            if (string.IsNullOrEmpty(dopuspath))
-            {
-                Console.WriteLine("Dopus not found in registry. Aborting");
                 return;
             }
 
@@ -36,13 +28,13 @@ namespace SearchEverythingCoreCLI
             switch (args[0])
             {
                 case "--help":
-                    Console.Write($"SearchEverything\n©2016 Devocalypse\n\nUsage:\nnSearchEverythingCLI <keyword>");
+                    Console.Write($"SearchEverything\n©2022 Devocalypse\n\nUsage:\nnSearchEverythingCLI <keyword>");
                     return;
 
                 default:
                     searchString = !args[0].StartsWith("Everything://", StringComparison.CurrentCultureIgnoreCase)
                         ? args[0]
-                        : args[0].Substring(13).TrimEnd('/');
+                        : args[0][13..].TrimEnd('/');
                     break;
             }
 
@@ -56,8 +48,25 @@ namespace SearchEverythingCoreCLI
 
             Console.WriteLine("Found {0} results.", results.Count);
 
-            //pass results to dopus
-            Dopus.GenerateCollection(results);
+            //check if dopus is installed
+            var dopuspath = Dopus.GetDopusPathFromRegistry();
+            if (string.IsNullOrEmpty(dopuspath))
+            {
+                Console.WriteLine("Dopus not found in registry. Switching to console output:");
+                Console.WriteLine("-------------------------");
+                foreach (var item in results)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                Console.WriteLine($"Total: {results.Count} results");
+                return;
+            } else
+            {
+                //pass results to dopus
+                Dopus.GenerateCollection(results);
+            }
+
+            
         }
     }
 }

@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Remote": {
+      "commandName": "Project",
+      "commandLineArgs": "theme",
+      "workingDirectory": "C:\\tmp",
+      "remoteDebugEnabled": true,
+      "authenticationMode": "None",
+      "remoteDebugMachine": "VM10:4026"
+    },
+    "Local": {
+      "commandName": "Project",
+      "commandLineArgs": "theme",
+      "remoteDebugEnabled": false,
+      "authenticationMode": "None",
+      "remoteDebugMachine": "VM10:4026"
+    }
+  }
+}
