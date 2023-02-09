@@ -55,16 +55,9 @@ namespace SearchEverythingCoreCLI
                 (string)
                     Registry.GetValue(
                         @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\DOpus.exe", "Path", "");
-            if(!string.IsNullOrEmpty(DopusLocation))
-            {
-                if (File.Exists(Path.Combine(DopusLocation, "dopusrt.exe")))
-                    DopusLocation = Path.Combine(DopusLocation, "dopusrt.exe");
-                return DopusLocation;
-            } else
-            {
-                return null;
-            }
-            
+            if (File.Exists(Path.Combine(DopusLocation, "dopusrt.exe")))
+                DopusLocation = Path.Combine(DopusLocation, "dopusrt.exe");
+            return DopusLocation;
         }
 
         public static OperationResult GenerateCollection(List<string> list, string name = "Everything")
@@ -97,11 +90,11 @@ namespace SearchEverythingCoreCLI
                             Error = "Could not import file list to Directory Opus.",
                         };
                     OpenResults();
-                    return new OperationResult { Error = "Export successful" };
+                    return new OperationResult {Error = "Export successful"};
                 }
                 catch (IOException ex)
                 {
-                    return new OperationResult { Error = ex.Message };
+                    return new OperationResult {Error = ex.Message};
                 }
             }
             return new OperationResult
